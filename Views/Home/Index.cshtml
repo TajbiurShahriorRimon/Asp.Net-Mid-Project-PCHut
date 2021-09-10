@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    
+}
+
+<div style=" padding-top:50px; padding-left:20px;">
+    <form method="post" action="/Product/SearchProduct">
+        <input type="text" name="search" />
+        <input type="submit" value="Search" />
+    </form>
+</div>
+
+<div style="padding-top:15px; padding-left:20px">
+    <form method="post" action="Product/SpecialCategory">
+
+        <select for="Special" id="type" name="productType">
+            <option value="Work Station"> Work Station </option>
+            <option value="Gaming"> Gaming World </option>
+            <option value="Apple"> Apple </option>
+        </select>
+        <button type="submit"> Search</button>
+
+        
+    </form>
+    
+</div>
+
+
+
+
+<div style=" padding-top:50px">
+    <img src="~/Resources/Image/main logo.png" width="800" height="500" style="align-content:center" />
+
+
+    <h1>Website loading</h1>
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PcHut.Models.brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+
+
+    @{
+        if (Session["user_type"] != null)
+        {
+            string userType = Session["user_type"].ToString();
+            if (int.Parse(userType) == 1 || int.Parse(userType) == 2)
+            {
+                @Html.ActionLink("Create New", "Create")
+            }
+
+        }
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.brand_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vendor.vendor_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.brand_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.vendor.vendor_name)
+    </td>
+    <td>
+        @{
+            if (Session["user_type"] != null)
+            {
+                string userType = Session["user_type"].ToString();
+                if (int.Parse(userType) == 1 || int.Parse(userType) == 2)
+                {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.brand_id }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.brand_id })
+                </td>
+                    }
+                }
+            }
+        </td>
+    </tr>
+    }
+
+</table>
