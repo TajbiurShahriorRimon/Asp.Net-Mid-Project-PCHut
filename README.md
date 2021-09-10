@@ -6,8 +6,8 @@ Sql zipped File: [pchut.zip](https://github.com/TajbiurShahriorRimon/Asp.Net-Mid
 Unzip the file and Import the bcpac file in the MSSQL Sever Mangagement Studio
 
 <hr />
-Not All the features are done by me!
-Admin features along with sign-up are done by me. Login as an admin to see the features.
-Managers features  along with login are done by [Born0 (Md.Sirajuddin Borno)](https://github.com/Born0). Login as a manager to see the features.
+## Not All the features are done by me!
+Admin features along with sign-up is done by me. Login as an admin to see the features.
+Managers and some other features along with login is done by [Born0 (Md.Sirajuddin Borno)](https://github.com/Born0). Login as a manager to see the features.
 Cart Feature is done by [sadat-xlr](https://github.com/sadat-xlr)
 
