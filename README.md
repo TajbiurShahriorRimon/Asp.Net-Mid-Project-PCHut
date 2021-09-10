@@ -9,7 +9,7 @@ Unzip the file and Import the bcpac file in the MSSQL Sever Mangagement Studio
 
 ## Not All the features are done by me!
 
-Admin features along with sign-up is done by me. Login as an admin to see the features. <br />
+Admin features along with sign-up is done by me [TajbiurShahriorRimon](https://github.com/TajbiurShahriorRimon). Login as an admin to see the features. <br />
 Managers and some other features along with login is done by [Born0 (Md.Sirajuddin Borno)](https://github.com/Born0). Login as a manager to see the features. <br />
 Cart Feature is done by [sadat-xlr](https://github.com/sadat-xlr)
 
