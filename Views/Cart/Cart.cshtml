@@ -28,7 +28,11 @@
 
                 <td>@item.Products.product_name</td>
                 <td>@item.Products.price</td>
-                <td>@item.Quantity</td>
+                <td id="@item.Products.product_id"><input style="border: 0; outline: none" name="quantity" type="text" value="@item.Quantity" disabled/>
+                    <button class="btn-sm btn-success" name="minus" onclick="quantity(this)"><</button> 
+                    <button class="btn-sm btn-success" name="plus" onclick="quantity(this)">></button>
+                </td>
+                @*<td><input type="number" onclick="quantity(this.id)" id="@item.Products.product_id" /></td>*@
                 <td>@(item.Quantity*item.Products.price)</td>
                 <td>
                     @using (Html.BeginForm("Remove", "Cart", new { id = item.Products.product_id }))

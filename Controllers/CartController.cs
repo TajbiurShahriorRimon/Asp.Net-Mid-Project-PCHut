@@ -26,8 +26,8 @@ namespace PcHut.Controllers
             cart.RemoveAt(index);
 
             Session["Cart"] = cart;
-            return View("Cart");
-
+            //return View("Cart");
+            return RedirectToAction("Index");
         }
         public ActionResult AddToCart(int id)
         {
@@ -48,7 +48,8 @@ namespace PcHut.Controllers
                 Session["Cart"] = cart;
 
             }
-            return View("Cart");
+            //return View("Cart");
+            return RedirectToAction("Index");
         }
         private int AlreadyAdded(int id)
         {
@@ -62,16 +63,29 @@ namespace PcHut.Controllers
             return -1;   
               
 
-            }
+        }
 
         public ActionResult Checkout()
         {
             return View();
-        }
+        }   
+        
+        public ActionResult ReduceProductUnit(int id)
+        {
+            int index = AlreadyAdded(id);
+            List<Item> cart = (List<Item>)Session["Cart"];
 
-
+            if(cart[index].Quantity == 1)
+            {
+                return RedirectToAction("Index");
+            }
+            cart[index].Quantity = cart[index].Quantity - 1;
+            Session["Cart"] = cart;
+            
+            return RedirectToAction("Index");
         }
+    }
         
 
 
-    }
+}

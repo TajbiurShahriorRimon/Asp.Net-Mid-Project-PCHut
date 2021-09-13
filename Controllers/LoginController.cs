@@ -51,6 +51,7 @@ namespace PcHut.Controllers
         {
             Session["user_id"] = null;
             Session["user_type"] = null;
+            Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 

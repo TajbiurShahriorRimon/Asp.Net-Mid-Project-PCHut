@@ -6,9 +6,18 @@
 @using PcHut.Controllers
 @using PcHut.Models
 <h2>Products In Cart</h2>
+@{
+    List<Item> list = (List<Item>)Session["Cart"];
+}
 
-@if (Session["Cart"] != null)
+@if (list.Count == 0 && list != null)
 {
+    <h1> NOTHING ADDED TO CART </h1>
+}
+
+else if (Session["Cart"] != null)
+{
+    @*<form onsubmit="">*@
     <table class="table" style="text-align:justify">
         <tr>
 
@@ -28,34 +37,59 @@
 
                 <td>@item.Products.product_name</td>
                 <td>@item.Products.price</td>
-                <td>@item.Quantity</td>
+                @*<td>@item.Quantity</td>   *@
+                <td id="@item.Products.product_id">
+                    <div>
+                        <input style="border: 0; outline: none" name="quantity" id="quantity" type="text" value="@item.Quantity" readonly />
+                        @*<button class="btn-sm btn-success" id="minus" value="@item.Products.product_id" name="minus"><</button>*@
+                        <button class="btn-sm btn-info" id="minus" onclick="location.href='@Url.Action("ReduceProductUnit", new { id = item.Products.product_id})'" name="minus"><</button>
+
+                        @*<button class="btn-sm btn-success" id="plus" onclick="add(@item.Products.product_id)" name="plus">></button>*@
+                        <button class="btn-sm btn-success" id="plus" onclick="location.href='@Url.Action("AddToCart", "Cart")?id='+@item.Products.product_id" name="plus">></button>
+                    </div>
+                </td>
                 <td>@(item.Quantity * item.Products.price)</td>
                 <td>
                     @using (Html.BeginForm("Remove", "Cart", new { id = item.Products.product_id }))
                     {
                         <div>
-                            <input type="submit" class="btn btn-success" value="Remove">
-                        </div>}
+                            <input type="submit" class="btn btn-danger" value="Remove">
+                        </div>
+                    }
                 </td>
-
-
-
-
             </tr>
-
-
-
-
-
         }
 
 
-            @Html.ActionLink("Continue Shopping", "Index", "Product")
+        @Html.ActionLink("Continue Shopping", "Index", "Product")
     </table>
+    @*</form>*@
+
+    <div style="text-align:center;">
+
+        <a href="/Cart/Checkout" class="btn btn-warning btn-group-justified">Checkout</a>
+    </div>
+
 }
-else {
-    <h2>NOTHING ADDED TO CART</h2>
+else if (Session["Cart"] == null)
+{
+    <h2> NOTHING ADDED TO CART </h2>
+}
+else
+{
+    <h2> NOTHING ADDED TO CART </h2>
 }
 
+@*<script src="~/Scripts/jquery-3.6.0.js"></script>
 
 
+    @*<script type="text/javascript">
+        function add(id) {
+            var t = id;
+            alert("id: " + id);
+
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")?id=' + id,
+            });
+        }
+    </script>*@
