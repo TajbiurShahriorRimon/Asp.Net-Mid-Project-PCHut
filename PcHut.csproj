@@ -136,6 +136,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\Sales_RecordController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Global.asax.cs">
@@ -198,6 +199,7 @@
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\SalesRepository.cs" />
+    <Compile Include="Repository\Sales_RecordRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
   </ItemGroup>
@@ -414,6 +416,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Resources\Icon\" />
     <Folder Include="Views\Invoice\" />
+    <Folder Include="Views\Sales_Record\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

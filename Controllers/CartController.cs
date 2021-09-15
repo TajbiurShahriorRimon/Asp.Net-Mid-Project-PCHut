@@ -67,7 +67,7 @@ namespace PcHut.Controllers
 
         public ActionResult Checkout()
         {
-            return View();
+            return RedirectToAction("Index", "Sales_Record");
         }   
         
         public ActionResult ReduceProductUnit(int id)
